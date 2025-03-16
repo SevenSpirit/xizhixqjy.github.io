@@ -36,7 +36,8 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 .logo h1 a{
 	text-decoration:none;
-	color:#00bce4;
+  color:#0063e4;
+	/* color:#00bce4; */
 }
 .logo p {
   color: #A7A6A6;
