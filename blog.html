@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 <title>AI互动平台</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -14,6 +14,179 @@
 <meta name="keywords" content="Charity Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek风格对话界面</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+	/* 定义局部作用域容器 */
+	.deepseek-style {
+		--primary-color: #0b8aff;
+		--secondary-color: #00c3ff;
+		--user-bubble: #e3f2fd;
+		--ai-bubble: #f5f7fa;
+		
+		/* 基础容器样式 */
+		all: initial;
+		display: block;
+		width: 100%;
+		height: 100vh;
+		position: relative;
+		font-family: 'Microsoft YaHei', sans-serif;
+	}
+
+	/* 重置容器内元素基础样式 */
+	.deepseek-style * {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	/* 主布局样式 */
+	.deepseek-style .ds-body {
+		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+		height: 100vh;
+		display: flex;
+	}
+
+        /* 左侧导航栏 */
+		.deepseek-style .sidebar {
+            width: 260px;
+            background: linear-gradient(160deg, #1a237e 0%, #0d47a1 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+        }
+
+		.deepseek-style .logo {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+		.deepseek-style .nav-item {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin: 0.4rem 0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+		.deepseek-style .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* 对话主区域 */
+		.deepseek-style .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+		.deepseek-style .chat-messages {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* 消息气泡 */
+        .deepseek-style .message {
+            max-width: 70%;
+            padding: 1.2rem 1.5rem;
+            border-radius: 15px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+		.deepseek-style .user-message {
+            background: var(--user-bubble);
+            align-self: flex-end;
+            border-bottom-right-radius: 3px;
+        }
+
+		.deepseek-style .ai-message {
+            background: var(--ai-bubble);
+            align-self: flex-start;
+            border-bottom-left-radius: 3px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 输入区域 */
+		.deepseek-style .input-area {
+            padding: 1.5rem 2rem;
+            background: white;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1rem;
+        }
+
+		.deepseek-style .input-box {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+		.deepseek-style .input-box:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+		.deepseek-style .send-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+		.deepseek-style .send-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        @media (max-width: 768px) {
+            .deepseek-style .sidebar { width: 80px; }
+            .deepseek-style .logo span { display: none; }
+            .deepseek-style .nav-item span { display: none; }
+            .deepseek-style .message { max-width: 85%; }
+        }
+
+	/* 消息气泡动画 */
+	@keyframes deepseek-fadeIn {
+		from { opacity: 0; transform: translateY(10px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	/* 移动端适配 */
+	@media (max-width: 768px) {
+		.deepseek-style .sidebar {
+			width: 80px;
+		}
+		.deepseek-style .logo span {
+			display: none;
+		}
+		.deepseek-style .nav-item span {
+			display: none;
+		}
+		.deepseek-style .message {
+			max-width: 85%;
+		}
+	}
+</style>
+
 </head>
 <body>
 <!--header-->
@@ -48,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="logo">
 					<h1><a href="index.html">儿童职业梦--《大手拉小手》：科技赋能儿童职业启蒙</a></h1>
 					<!-- <h4><a href="index.html"> 　　　　　　　　　　　　　　——"大手拉小手"科技启童梦</a></h4> -->
-					<p>新闻之窗</p>
+					<!-- <p>新闻之窗</p> -->
 				</div>
 			</div>
 		</div>
@@ -59,10 +232,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   <div class="blog">
 			<div class="container">
-			<h2>Blog</h2>
-			<div class="col-md-8 ">
+			<!-- <h2>Blog</h2> -->
+			<div class="col-md1 ">
 				<div class=" single-grid">
-					<a href="single.html"><img class="img-responsive" src="images/bo.jpg" alt="" /></a>
+					<a href="#"><img class="img-responsive" src="images/AIyunjing.png" alt="" /></a>
 					<div class="lone-line">
 						<h4><a href="single.html">Social Sense Perception of Loneliness</a></h4>
 						<ul class="sin-grid">
@@ -77,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="hvr-rectangle-out" href="#">READ MORE</a>
 					</div>
 				</div>
-					<div class=" single-grid">
+					<!-- <div class=" single-grid">
 					<a href="single.html"><img class="img-responsive" src="images/bo1.jpg" alt="" /></a>
 					<div class="lone-line">
 						<h4><a href="single.html">Social Sense Perception of Loneliness</a></h4>
@@ -92,8 +265,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p class="ut"> laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error.</p>
 						<a class="hvr-rectangle-out" href="#">READ MORE</a>
 					</div>
-				</div>
-					<div class=" single-grid">
+				</div> -->
+					<!-- <div class=" single-grid">
 					<a href="single.html"><img class="img-responsive" src="images/bo2.jpg" alt="" /></a>
 					<div class="lone-line">
 						<h4><a href="single.html">Social Sense Perception of Loneliness</a></h4>
@@ -108,9 +281,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p class="ut"> laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error.</p>
 						<a class="hvr-rectangle-out" href="#">READ MORE</a>
 					</div>
+				</div> -->
 				</div>
-				</div>
-				<div class="col-md-3 categories-grid">
+				<!-- <div class="col-md-3 categories-grid">
 				<div class="grid-categories">
 					<h4>Categories</h4>
 					<ul class="popular ">
@@ -123,8 +296,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"><i class="glyphicon glyphicon-ok-sign"> </i>Contrary to popular belief</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-ok-sign"> </i>There are many variation</a></li>
 					</ul>
-				</div>
-				<div class="grid-categories">
+				</div> -->
+				<!-- <div class="grid-categories">
 					<h4>Achivements</h4>
 					<ul class="popular popular-in">
 						<li><a href="#"><i class="glyphicon glyphicon-ok-sign"> </i>MAY 2014</a></li>
@@ -133,10 +306,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="#"><i class="glyphicon glyphicon-ok-sign"> </i>FEB 2010</a></li>
 						<li><a href="#"><i class="glyphicon glyphicon-ok-sign"> </i>NOV 2009</a></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
-				<div class="clearfix"> </div>
-			<nav>
+				<!-- <div class="clearfix"> </div> -->
+			<!-- <nav>
 				  <ul class="pagination">
 					<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 					<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -146,9 +319,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li ><a href="#">5 <span class="sr-only"></span></a></li>
 					 <li> <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span> </a> </li>
 				  </ul>
-				</nav>	
+				</nav>	 -->
 			</div>
+
+			<div class="logo">
+				
+				<!-- <h4><a href="index.html"> 　　　　　　　　　　　　　　——"大手拉小手"科技启童梦</a></h4> -->
+				<p>AI互动区</p>
+			</div>
+
+<!-- DeepSeek 容器 -->
+<div class="deepseek-style">
+    <!-- 实际内容结构 -->
+    <div class="ds-body">
+		<!-- 左侧导航 -->
+		<div class="sidebar">
+			<div class="logo">
+				<i class="fas fa-brain"></i>
+				<span>DeepSeek</span>
+			</div>
+			<div class="nav-item">
+				<i class="fas fa-comments"></i>
+				<span>对话历史</span>
+			</div>
+			<div class="nav-item">
+				<i class="fas fa-cog"></i>
+				<span>设置</span>
+			</div>
+			<div class="nav-item">
+				<i class="fas fa-lightbulb"></i>
+				<span>功能说明</span>
+			</div>
+		</div>
+	
+		<!-- 对话主区域 -->
+		<div class="chat-container">
+			<div class="chat-messages">
+				<!-- 用户消息 -->
+				<div class="message user-message">
+					请帮我生成儿童职业体验活动的设计方案
+				</div>
+	
+				<!-- AI回复 -->
+				<div class="message ai-message">
+					以下是儿童职业体验设计方案建议：<br><br>
+					1. 设立虚拟职业体验区（医生/消防员/宇航员）<br>
+					2. AR互动教学系统<br>
+					3. 职业任务挑战赛<br>
+					4. 职业装备cosplay区
+				</div>
+	
+				<div class="message user-message">
+					需要包含安全防护措施
+				</div>
+	
+				<div class="message ai-message">
+					安全方案建议：<br><br>
+					✅ 全场地软包处理<br>
+					✅ 智能定位手环<br>
+					✅ 1:5工作人员配比<br>
+					✅ 应急医疗站配置
+				</div>
+			</div>
+	
+			<!-- 输入框 -->
+			<div class="input-area">
+				<input type="text" class="input-box" placeholder="输入您的问题...">
+				<button class="send-btn">发送</button>
+			</div>
+		</div>
 	</div>
+</div>
 <div class="footer">
 	<div class="footer-mid">
 			<div class="container">

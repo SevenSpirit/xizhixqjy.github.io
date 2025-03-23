@@ -1,0 +1,147 @@
+
+			/* 添加在CSS文件最前面 */
+.deepseek-style {
+    all: initial; /* 重置继承样式 */
+    display: block;
+    /* 自定义容器基础样式 */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  .deepseek-style :root {
+    --primary-color: #0b8aff;
+    --secondary-color: #00c3ff;
+    --user-bubble: #e3f2fd;
+    --ai-bubble: #f5f7fa;
+}
+	
+  .deepseek-style * {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 'Microsoft YaHei', sans-serif;
+			}
+	
+			.deepseek-style body {
+				background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+				height: 100vh;
+				display: flex;
+			}
+	
+			/* 左侧导航栏 */
+			.deepseek-style .sidebar {
+				width: 260px;
+				background: linear-gradient(160deg, #1a237e 0%, #0d47a1 100%);
+				color: white;
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+			}
+	
+			.deepseek-style .logo {
+				font-size: 1.8rem;
+				margin-bottom: 2rem;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+			}
+	
+			.deepseek-style .nav-item {
+				padding: 0.8rem 1rem;
+				border-radius: 8px;
+				margin: 0.4rem 0;
+				transition: all 0.3s;
+				cursor: pointer;
+			}
+	
+			.deepseek-style .nav-item:hover {
+				background: rgba(255,255,255,0.1);
+			}
+	
+			/* 对话主区域 */
+			.deepseek-style .chat-container {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+			}
+	
+			.deepseek-style .chat-messages {
+				flex: 1;
+				padding: 2rem;
+				overflow-y: auto;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+			}
+	
+			/* 消息气泡 */
+			.deepseek-style .message {
+				max-width: 70%;
+				padding: 1.2rem 1.5rem;
+				border-radius: 15px;
+				animation: fadeIn 0.3s ease-out;
+			}
+	
+			.deepseek-style .user-message {
+				background: var(--user-bubble);
+				align-self: flex-end;
+				border-bottom-right-radius: 3px;
+			}
+	
+			.deepseek-style .ai-message {
+				background: var(--ai-bubble);
+				align-self: flex-start;
+				border-bottom-left-radius: 3px;
+				box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+			}
+	
+			/* 输入区域 */
+			.deepseek-style .input-area {
+				padding: 1.5rem 2rem;
+				background: white;
+				box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+				display: flex;
+				gap: 1rem;
+			}
+	
+			.deepseek-style .input-box {
+				flex: 1;
+				padding: 1rem 1.5rem;
+				border: 2px solid #e0e0e0;
+				border-radius: 12px;
+				font-size: 1rem;
+				transition: border-color 0.3s;
+			}
+	
+			.deepseek-style .input-box:focus {
+				outline: none;
+				border-color: var(--primary-color);
+			}
+	
+			.deepseek-style .send-btn {
+				background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+				color: white;
+				padding: 0.8rem 1.8rem;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: transform 0.2s;
+			}
+	
+			.deepseek-style .send-btn:hover {
+				transform: translateY(-2px);
+			}
+	
+			 @keyframes fadeIn {
+				from { opacity: 0; transform: translateY(10px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+	
+			 @media (max-width: 768px) {
+				.sidebar { width: 80px; }
+				.logo span { display: none; }
+				.nav-item span { display: none; }
+				.message { max-width: 85%; }
+			}
+		
